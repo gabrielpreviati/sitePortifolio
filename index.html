@@ -65,7 +65,7 @@
 
         <section id="contato">
             <h2>Contato</h2>
-            <form id="form-contato">
+            <form id="form-contato" action="https://formsubmit.co/gabrielpreviati4@gmail.com" method="POST">
                 <label for="nome">Nome:</label>
                 <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
 
@@ -74,6 +74,13 @@
 
                 <label for="mensagem">Mensagem:</label>
                 <textarea id="mensagem" name="mensagem" placeholder="Digite sua mensagem"></textarea>
+
+                <!-- redireciona para uma página de agradecimento -->
+                <input type="hidden" name="_next" value="https://SEU_DOMINIO_OU_URL/obrigado.html">
+                <!-- desativa o captcha -->
+                <input type="hidden" name="_captcha" value="false">
+                <!-- honeypot anti-span -->
+                <input type="text" name="_honey" style="display:none">
 
                 <button type="submit">Enviar</button>
             </form>
