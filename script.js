@@ -26,6 +26,9 @@ form.addEventListener('submit', function(event) {
         return;
     }
 
+    // envia o form para FormSubmit
+    form.submit();
+
     // Se passar na validação
     alert("Formulário enviado com sucesso!");
     form.reset(); // Limpa os campos
