@@ -340,11 +340,6 @@ footer {
         transform: translateX(0);
     }
 
-    /* Esconde as informações de contato no menu mobile, se preferir */
-    .contact-info {
-        display: none;
-    }
-
     /* Remove a margem do conteúdo principal e dá espaço para o botão */
     main {
         margin-left: 0;
