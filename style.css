@@ -270,3 +270,39 @@ footer {
 .btn-modal:hover {
     background-color: #00a887;
 }
+
+ /* Tecnologias Grid */
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 1rem;
+}
+
+.tech-card {
+    background-color: #e5e5e5;
+    color: #1a1a1a;
+    border-radius: 8px;
+    padding: 1rem 0.5rem;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 500;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.tech-card img {
+    width: 35px;
+    height: 35px;
+    object-fit: contain;
+}
+
+.tech-card:hover {
+    border-color: #60a5fa;
+    box-shadow: 0 0 12px rgba(96, 165, 250, 0.4);
+    transform: translateY(-2px);
+}
