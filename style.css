@@ -57,14 +57,6 @@ nav ul li a:hover {
     line-height: 1.5;
 }
 
-@media (max-width: 768px) {
-    /* Esconde as informações de contato em telas pequenas, já que a navegação
-       fica em linha e não tem espaço vertical suficiente */
-    .contact-info {
-        display: none;
-    }
-}
-
 /* Conteúdo principal */
 main {
     margin-left: 240px;
