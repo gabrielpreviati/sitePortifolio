@@ -10,175 +10,222 @@
 </head>
 
 <body>
+    <canvas id="bg-canvas"></canvas>
+
     <button id="menu-btn" class="menu-btn" aria-label="Abrir menu">&#9776;</button>
 
     <nav>
-        <h2>Gabriel</h2>
+        <div class="nav-header">
+            <h2>Gabriel</h2>
+        </div>
         <ul>
-            <li><a href="#Inicio">Inicio</a></li>
-            <li><a href="#sobre-mim">Sobre Mim</a></li>
-            <li><a href="#habilidades">Habilidades</a></li>
-            <li><a href="#projetos">Projetos</a></li>
-            <li><a href="#contato">Contato</a></li>
+            <li>
+                <a href="#Inicio" class="active">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                    Inicio
+                </a>
+            </li>
+            <li>
+                <a href="#sobre-mim">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                    Sobre Mim
+                </a>
+            </li>
+            <li>
+                <a href="#habilidades">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                    Habilidades
+                </a>
+            </li>
+            <li>
+                <a href="#projetos">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+                    Projetos
+                </a>
+            </li>
+            <li>
+                <a href="#contato">
+                    <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    Contato
+                </a>
+            </li>
         </ul>
-        <p class="contact-info">gabrielpreviati4@gmail.com</p>
-        <p class="contact-info">tel: (11)940707136</p>
+        <div class="nav-footer contact-info">
+            <p>gabrielpreviati4@gmail.com</p>
+            <p>tel: (11)940707136</p>
+        </div>
     </nav>
 
     <main>
-        <section id="Inicio" class="hero">
-            <h1>Olá! <br>Eu sou o <span>Gabriel</span>,<br>Desenvolvedor Back-End</h1>
-            <p>Estudante de Engenharia de Software | Apaixonado por tecnologia</p>
-            <a href="#contato" class="btn">Entre em contato comigo</a>
-        </section>
+        <div class="left-column">
+            <section id="Inicio" class="hero">
+                <h1>Olá! <br>Eu sou o <span>Gabriel</span>,<br>Desenvolvedor Back-End</h1>
+                <p>Estudante de Engenharia de Software | Apaixonado por tecnologia</p>
+                <a href="#contato" class="btn">Entre em contato comigo</a>
+            </section>
 
-        <section id="sobre-mim">
-            <h2>Sobre Mim</h2>
-            <p>Sou apaixonado por tecnologia e desenvolvimento, atualmente cursando Engenharia de Software. Gosto de aprender novas linguagens de programação, criar projetos e explorar o mundo da TI.
-            </p>
-        </section>
+            <section id="sobre-mim">
+                <h2>Sobre Mim</h2>
+                <div class="glass-card">
+                    <p>Sou apaixonado por tecnologia e desenvolvimento, atualmente cursando Engenharia de Software. Gosto de aprender novas linguagens de programação, criar projetos e explorar o mundo da TI.</p>
+                </div>
+            </section>
 
-        <section id="habilidades">
-             <div class="card">
+            <section id="habilidades">
                 <h2>Tecnologias</h2>
                 <div class="tech-grid">
                     <a href="https://docs.oracle.com/en/java/" target="_blank" class="tech-card">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Ícone Java">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg" alt="Java">
                         Java
                     </a>
                     <a href="https://docs.python.org/3/" target="_blank" class="tech-card">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Ícone Python">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python">
                         Python
                     </a>
                     <a href="https://git-scm.com/doc" target="_blank" class="tech-card">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Ícone Git">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git">
                         Git
                     </a>
                     <a href="https://www.gnu.org/software/bash/manual/" target="_blank" class="tech-card">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg" alt="Ícone Bash">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bash/bash-original.svg" alt="Bash">
                         Bash
                     </a>
                     <a href="https://docs.docker.com/" target="_blank" class="tech-card">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Ícone Docker">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-original.svg" alt="Docker">
                         Docker
                     </a>
                     <a href="https://help.trello.com/" target="_blank" class="tech-card">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/trello/trello-plain.svg" alt="Ícone Trello">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/trello/trello-plain.svg" alt="Trello">
                         Trello
                     </a>
                     <a href="https://confluence.atlassian.com/alldoc/atlassian-documentation-32243719.html" target="_blank" class="tech-card">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg" alt="Ícone Jira">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/jira/jira-original.svg" alt="Jira">
                         Jira
                     </a>
                 </div>
-            </div>
-        </section>
-
-        <section id="projetos">
-            <h2>Projetos</h2>
-            
-            <article onclick="abrirModal('modal-projeto1')">
-                <h3>Curriculo</h3>
-                <p>Tenha acesso ao meu curriculo digital. La você conhece a minha trajetoria e tem acesso a um modelo PDF do curriculo.</p>
-            </article>
-            <article onclick="abrirModal('modal-projeto2')">
-                <h3>Site Barbearia</h3>
-                <p>Meu primeiro site criado utilizando HTML, CSS e JavaScript.</p>
-            </article>
-            <article onclick="abrirModal('modal-projeto3')">
-                <h3>Calculadora Web</h3>
-                <p>Uma calculadora simples feita em JavaScript para treinar lógica de programação.</p>
-            </article>
-            <article onclick="abrirModal('modal-projeto4')">
-                <h3>Coffe Shop</h3>
-                <p>Este é um dos meus primeiros projetos, criado com HTML, CSS e JavaScript. Explore-o diretamente aqui!
-                </p>
-            </article>
-        </section>
-
-        <section id="contato">
-            <h2>Contato</h2>
-            <form id="form-contato" action="https://formsubmit.co/gabrielpreviati4@gmail.com" method="POST">
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" placeholder="Digite seu nome">
-
-                <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" placeholder="Digite seu e-mail">
-
-                <label for="mensagem">Mensagem:</label>
-                <textarea id="mensagem" name="mensagem" placeholder="Digite sua mensagem"></textarea>
-
-                <!-- redireciona para uma página de agradecimento -->
-                <input type="hidden" name="_next" value="https://SEU_DOMINIO_OU_URL/obrigado.html">
-                <!-- desativa o captcha -->
-                <input type="hidden" name="_captcha" value="false">
-                <!-- honeypot anti-span -->
-                <input type="text" name="_honey" style="display:none">
-
-                <button type="submit">Enviar</button>
-            </form>
-        </section>
-
-        <footer>
-            <p>&copy; 2025 Gabriel Previati - Todos os direitos reservados</p>
-        </footer>
-
-       <div id="modal-projeto1" class="modal">
-            <div class="modal-content">
-                <span class="fechar-modal">&times;</span>
-                <h2>Meu Curriculo</h2>
-                <div class="iframe-container">
-                    <iframe src="https://gabrielpreviati.github.io/curriculo/" frameborder="0"></iframe>
-                </div>
-                <p>Tenha acesso ao meu curriculo digital. La você conhece a minha trajetoria e tem acesso a um modelo PDF do curriculo.</p>
-                <a href="https://gabrielpreviati.github.io/curriculo/" target="_blank" class="btn-modal">Ver Projeto
-                    Completo</a>
-            </div>
+            </section>
         </div>
 
-        <div id="modal-projeto2" class="modal">
-            <div class="modal-content">
-                <span class="fechar-modal">&times;</span>
-                <h2>Site Barbearia</h2>
-                <div class="iframe-container">
-                    <iframe src="https://gabrielpreviati.github.io/siteBarbearia/" frameborder="0"></iframe>
-                </div>
-                <p>Este é o meu primeiro site , criado com HTML, CSS e JavaScript. Explore-o diretamente aqui!</p>
-                <a href="https://gabrielpreviati.github.io/siteBarbearia/" target="_blank" class="btn-modal">Ver Projeto
-                    Completo</a>
-            </div>
-        </div>
+        <div class="right-column">
+            <section id="projetos">
+                <h2>Projetos</h2>
+                <div class="projects-grid">
+                    <article class="project-card" onclick="abrirModal('modal-projeto1')">
+                        <div class="project-preview preview-cv">
+                            <div class="preview-mock-ui">📄 Curriculum Vitae</div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Currículo Digital</h3>
+                            <p>Minha trajetória profissional completa com acesso a download em modelo PDF estruturado.</p>
+                        </div>
+                    </article>
 
-        <div id="modal-projeto3" class="modal">
-            <div class="modal-content">
-                <span class="fechar-modal">&times;</span>
-                <h2>Calculadora Web</h2>
-                <div class="iframe-container">
-                    <iframe src="https://gabrielpreviati.github.io/calculadoraWeb/" frameborder="0"></iframe>
-                </div>
-                <p>Esta é uma calculadora simples que desenvolvi para treinar lógica de programação com JavaScript.
-                    Sinta-se à vontade para usá-la!</p>
-                <a href="https://gabrielpreviati.github.io/calculadoraWeb/" target="_blank" class="btn-modal">Ver
-                    Projeto Completo</a>
-            </div>
-        </div>
+                    <article class="project-card" onclick="abrirModal('modal-projeto2')">
+                        <div class="project-preview preview-barber">
+                            <div class="preview-mock-ui">💈 Barber Shop</div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Site Barbearia</h3>
+                            <p>Landing page moderna criada utilizando HTML estruturado, estilizações CSS e interações dinâmicas JavaScript.</p>
+                        </div>
+                    </article>
 
-        <div id="modal-projeto4" class="modal">
-            <div class="modal-content">
-                <span class="fechar-modal">&times;</span>
-                <h2>Coffe Shop</h2>
-                <div class="iframe-container">
-                    <iframe src="https://gabrielpreviati.github.io/coffeShop/" frameborder="0"></iframe>
+                    <article class="project-card" onclick="abrirModal('modal-projeto3')">
+                        <div class="project-preview preview-calc">
+                            <div class="preview-mock-ui">🧮 Web Calculator</div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Calculadora Web</h3>
+                            <p>Uma aplicação matemática simples desenvolvida para consolidar lógica algorítmica no front-end.</p>
+                        </div>
+                    </article>
+
+                    <article class="project-card" onclick="abrirModal('modal-projeto4')">
+                        <div class="project-preview preview-coffee">
+                            <div class="preview-mock-ui">☕ Coffee Shop Site</div>
+                        </div>
+                        <div class="project-info">
+                            <h3>Coffee Shop</h3>
+                            <p>E-commerce institucional responsivo focado na experiência de usuário com temática de cafeteria.</p>
+                        </div>
+                    </article>
                 </div>
-                <p>Este é um dos meus primeiros projetos, criado com HTML, CSS e JavaScript. Explore-o diretamente aqui!
-                </p>
-                <a href="https://gabrielpreviati.github.io/coffeShop/" target="_blank" class="btn-modal">Ver Projeto
-                    Completo</a>
-            </div>
+            </section>
+
+            <section id="contato">
+                <h2>Contato</h2>
+                <form id="form-contato" class="glass-card" action="https://formsubmit.co/gabrielpreviati4@gmail.com" method="POST">
+                    <label for="nome">Nome:</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
+
+                    <label for="email">E-mail:</label>
+                    <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+
+                    <label for="mensagem">Mensagem:</label>
+                    <textarea id="mensagem" name="mensagem" placeholder="Digite sua mensagem" required></textarea>
+
+                    <input type="hidden" name="_next" value="https://SEU_DOMINIO_OU_URL/obrigado.html">
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="text" name="_honey" style="display:none">
+
+                    <button type="submit">Enviar Mensagem</button>
+                </form>
+            </section>
         </div>
     </main>
 
+    <footer>
+        <p>&copy; 2026 Gabriel Previati - Todos os direitos reservados</p>
+    </footer>
+
+    <div id="modal-projeto1" class="modal">
+        <div class="modal-content">
+            <span class="fechar-modal">&times;</span>
+            <h2>Meu Curriculo</h2>
+            <div class="iframe-container">
+                <iframe src="https://gabrielpreviati.github.io/curriculo/" frameborder="0"></iframe>
+            </div>
+            <p>Tenha acesso ao meu curriculo digital. Lá você conhece a minha trajetória e tem acesso a um modelo PDF do curriculo.</p>
+            <a href="https://gabrielpreviati.github.io/curriculo/" target="_blank" class="btn-modal">Ver Projeto Completo</a>
+        </div>
+    </div>
+
+    <div id="modal-projeto2" class="modal">
+        <div class="modal-content">
+            <span class="fechar-modal">&times;</span>
+            <h2>Site Barbearia</h2>
+            <div class="iframe-container">
+                <iframe src="https://gabrielpreviati.github.io/siteBarbearia/" frameborder="0"></iframe>
+            </div>
+            <p>Este é o meu primeiro site, criado com HTML, CSS e JavaScript. Explore-o diretamente aqui!</p>
+            <a href="https://gabrielpreviati.github.io/siteBarbearia/" target="_blank" class="btn-modal">Ver Projeto Completo</a>
+        </div>
+    </div>
+
+    <div id="modal-projeto3" class="modal">
+        <div class="modal-content">
+            <span class="fechar-modal">&times;</span>
+            <h2>Calculadora Web</h2>
+            <div class="iframe-container">
+                <iframe src="https://gabrielpreviati.github.io/calculadoraWeb/" frameborder="0"></iframe>
+            </div>
+            <p>Esta é uma calculadora simples que desenvolvi para treinar lógica de programação com JavaScript.</p>
+            <a href="https://gabrielpreviati.github.io/calculadoraWeb/" target="_blank" class="btn-modal">Ver Projeto Completo</a>
+        </div>
+    </div>
+
+    <div id="modal-projeto4" class="modal">
+        <div class="modal-content">
+            <span class="fechar-modal">&times;</span>
+            <h2>Coffe Shop</h2>
+            <div class="iframe-container">
+                <iframe src="https://gabrielpreviati.github.io/coffeShop/" frameborder="0"></iframe>
+            </div>
+            <p>Este é um dos meus primeiros projetos, criado com HTML, CSS e JavaScript. Explore-o diretamente aqui!</p>
+            <a href="https://gabrielpreviati.github.io/coffeShop/" target="_blank" class="btn-modal">Ver Projeto Completo</a>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
-
 </html>

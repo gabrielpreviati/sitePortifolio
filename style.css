@@ -1,173 +1,411 @@
-/* Reset básico */
+/* Reset Moderno */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Corpo geral */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #121212;
-    color: white;
+:root {
+    --bg-dark: #07090e;
+    --panel-dark: #0e131f;
+    --accent: #00ffcc;
+    --accent-glow: rgba(0, 255, 204, 0.3);
+    --glass-bg: rgba(255, 255, 255, 0.02);
+    --glass-border: rgba(255, 255, 255, 0.07);
+    --text-white: #ffffff;
+    --text-muted: #8fa0ba;
+    --sidebar-width: 260px;
 }
 
-/* Menu lateral */
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+    overflow-x: hidden;
+}
+
+/* Canvas da Malha de Fundo */
+#bg-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* Menu Lateral Estilizado */
 nav {
     position: fixed;
     top: 0;
     left: 0;
-    width: 220px;
+    width: var(--sidebar-width);
     height: 100%;
-    background-color: #1e1e1e;
-    padding: 2rem 1rem;
-    z-index: 1001;
+    background: rgba(14, 19, 31, 0.75);
+    backdrop-filter: blur(20px);
+    border-right: 1px solid var(--glass-border);
+    padding: 2.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
 }
 
 nav h2 {
-    color: #00ffcc;
-    margin-bottom: 2rem;
-    font-size: 1.5rem;
+    color: var(--accent);
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    padding-left: 0.5rem;
+    text-shadow: 0 0 15px rgba(0, 255, 204, 0.2);
 }
 
 nav ul {
     list-style: none;
-}
-
-nav ul li {
-    margin-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 nav ul li a {
-    color: white;
+    color: var(--text-muted);
     text-decoration: none;
     font-size: 1rem;
-    transition: 0.3s;
+    font-weight: 500;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: all 0.3s ease;
 }
 
-nav ul li a:hover {
-    color: #00ffcc;
+nav ul li a svg {
+    transition: transform 0.3s ease;
 }
 
-/* Estilos para as informações de contato no menu de navegação */
+nav ul li a:hover, nav ul li a.active {
+    color: var(--text-white);
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: inset 4px 0 0 var(--accent);
+}
+
+nav ul li a:hover svg {
+    transform: translateX(3px);
+    color: var(--accent);
+}
+
 .contact-info {
-    font-size: 0.9rem;
-    color: #888;
-    margin-top: 1.5rem;
-    line-height: 1.5;
+    margin-top: auto;
+    padding-top: 2rem;
+    border-top: 1px solid var(--glass-border);
 }
 
-/* Conteúdo principal */
+.contact-info p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 0.6rem;
+    word-break: break-all;
+}
+
+/* Botão Hamburguer Mobile */
+.menu-btn {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 200;
+    background: var(--accent);
+    color: #121212;
+    border: none;
+    padding: 10px 14px;
+    font-size: 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0, 255, 204, 0.3);
+    transition: all 0.3s ease;
+}
+
+/* Layout Principal Assimétrico (Estilo Dashboard) */
 main {
-    margin-left: 240px;
-    padding: 2rem;
+    margin-left: var(--sidebar-width);
+    padding: 4rem;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 4rem;
+    position: relative;
+    z-index: 1;
 }
 
-/* Apresentação */
+section {
+    margin-bottom: 4rem;
+}
+
+h2 {
+    color: var(--text-white);
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 30px;
+    height: 3px;
+    background: var(--accent);
+    border-radius: 2px;
+}
+
+/* Cards com Efeito de Vidro (Glassmorphism) */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+    padding: 2rem;
+    border-radius: 16px;
+    line-height: 1.7;
+    color: var(--text-muted);
+}
+
+/* Apresentação / Hero */
 .hero {
-    min-height: 80vh;
+    min-height: 55vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
 .hero h1 {
-    font-size: 3rem;
-    line-height: 1.2;
+    font-size: 3.2rem;
+    line-height: 1.15;
+    font-weight: 800;
+    letter-spacing: -1px;
 }
 
 .hero h1 span {
-    color: #00ffcc;
+    color: var(--accent);
+    text-shadow: 0 0 20px rgba(0, 255, 204, 0.15);
 }
 
 .hero p {
-    font-size: 1.2rem;
-    margin-top: 1rem;
-    color: #ccc;
+    font-size: 1.15rem;
+    margin-top: 1.5rem;
+    color: var(--text-muted);
 }
 
 .btn {
     display: inline-block;
-    margin-top: 2rem;
-    padding: 0.8rem 1.5rem;
-    border: 2px solid #00ffcc;
-    color: #00ffcc;
+    align-self: flex-start;
+    margin-top: 2.5rem;
+    padding: 0.9rem 2rem;
+    background: transparent;
+    border: 2px solid var(--accent);
+    color: var(--accent);
     text-decoration: none;
-    transition: all 0.3s;
+    font-weight: 600;
+    border-radius: 30px;
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.05);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .btn:hover {
-    background-color: #00ffcc;
-    color: #121212;
+    background: var(--accent);
+    color: var(--bg-dark);
+    box-shadow: 0 0 25px var(--accent-glow);
+    transform: translateY(-3px);
 }
 
-/* Seções */
-section {
-    margin-bottom: 3rem;
-}
-
-h2 {
-    color: #00ffcc;
-    margin-bottom: 1rem;
-}
-
-/* Cards de projetos */
-#projetos article {
-    background: #1e1e1e;
-    padding: 1rem;
-    border-radius: 8px;
-    margin-bottom: 1rem;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-}
-
-#projetos article:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-/* Formulário */
-form {
-    display: flex;
-    flex-direction: column;
+/* Tecnologias Grid Contemporâneo */
+.tech-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
     gap: 1rem;
 }
 
-input, textarea {
-    padding: 0.8rem;
-    border: none;
-    border-radius: 5px;
-    font-size: 1rem;
-    background-color: #333;
-    color: white;
+.tech-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
+    color: var(--text-muted);
+    border-radius: 12px;
+    padding: 1.2rem 0.5rem;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    transition: all 0.3s ease;
 }
 
-input::placeholder, textarea::placeholder {
-    color: #aaa;
+.tech-card img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    filter: grayscale(20%);
+    transition: transform 0.3s ease;
+}
+
+.tech-card:hover {
+    border-color: var(--accent);
+    color: var(--text-white);
+    background: rgba(0, 255, 204, 0.02);
+    box-shadow: 0 5px 15px rgba(0, 255, 204, 0.08);
+    transform: translateY(-4px);
+}
+
+.tech-card:hover img {
+    transform: scale(1.15);
+    filter: grayscale(0%);
+}
+
+/* Grid de Projetos */
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.project-card {
+    background: var(--panel-dark);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-preview {
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    border-bottom: 1px solid var(--glass-border);
+}
+
+/* Gradientes customizados simulando mockups visuais como no print */
+.preview-cv { background: linear-gradient(135deg, #1e293b, #0f172a); }
+.preview-barber { background: linear-gradient(135deg, #111827, #1f2937); }
+.preview-calc { background: linear-gradient(135deg, #312e81, #1e1b4b); }
+.preview-coffee { background: linear-gradient(135deg, #78350f, #451a03); }
+
+.preview-mock-ui {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.project-info {
+    padding: 1.5rem;
+}
+
+.project-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-white);
+    transition: color 0.3s ease;
+}
+
+.project-info p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), 0 0 15px rgba(0, 255, 204, 0.05);
+}
+
+.project-card:hover .project-info h3 {
+    color: var(--accent);
+}
+
+/* Formulário Futurista */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+form label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-white);
+    margin-bottom: -0.4rem;
+}
+
+input, textarea {
+    padding: 1rem;
+    border: 1px solid var(--glass-border);
+    border-radius: 10px;
+    font-size: 0.95rem;
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--text-white);
+    transition: all 0.3s ease;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    box-shadow: 0 0 10px rgba(0, 255, 204, 0.1);
+    background: rgba(0, 0, 0, 0.3);
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
 }
 
 button[type="submit"] {
-    background-color: #00ffcc;
-    color: #121212;
-    padding: 0.8rem;
+    background: var(--accent);
+    color: var(--bg-dark);
+    padding: 1rem;
     border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 1rem;
     cursor: pointer;
-    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 255, 204, 0.2);
+    transition: all 0.3s ease;
 }
 
 button[type="submit"]:hover {
-    background-color: #00e6b8;
+    background: #00e6b8;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 255, 204, 0.3);
 }
 
 /* Rodapé */
 footer {
     text-align: center;
-    padding: 1rem;
-    background: #1e1e1e;
-    margin-top: 2rem;
+    padding: 2rem;
+    background: #0a0e17;
+    border-top: 1px solid var(--glass-border);
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    position: relative;
+    z-index: 1;
 }
 
-/* Estilos para o Modal */
+/* Modais Estilizados */
 .modal {
     display: none;
     position: fixed;
@@ -176,12 +414,11 @@ footer {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    backdrop-filter: blur(5px);
+    background-color: rgba(5, 7, 12, 0.85);
+    backdrop-filter: blur(8px);
     padding: 20px;
 }
 
-/* Classe que mostra o modal */
 .modal.show {
     display: flex;
     justify-content: center;
@@ -189,166 +426,122 @@ footer {
 }
 
 .modal-content {
-    background-color: #1a1a1a;
-    padding: 20px;
-    border: 1px solid #333;
+    background-color: var(--panel-dark);
+    padding: 2.5rem;
+    border: 1px solid var(--glass-border);
     width: 90%;
     max-width: 900px;
-    height: 90vh;
-    max-height: 800px;
-    border-radius: 8px;
-    color: #fff;
+    height: 85vh;
+    max-height: 750px;
+    border-radius: 20px;
+    color: var(--text-white);
     position: relative;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
     display: flex;
     flex-direction: column;
 }
 
 .fechar-modal {
-    color: #aaa;
+    color: var(--text-muted);
     position: absolute;
-    top: 10px;
-    right: 25px;
-    font-size: 28px;
-    font-weight: bold;
+    top: 15px;
+    right: 20px;
+    font-size: 32px;
+    font-weight: 300;
     cursor: pointer;
-    z-index: 1;
+    z-index: 10;
+    transition: color 0.3s;
 }
 
-.fechar-modal:hover,
-.fechar-modal:focus {
-    color: #fff;
-    text-decoration: none;
+.fechar-modal:hover {
+    color: var(--accent);
 }
 
-.modal-content h2,
+.modal-content h2 {
+    color: var(--text-white);
+    margin-bottom: 1rem;
+}
+
 .modal-content p {
-    color: #00e0b7;
-    margin-bottom: 15px;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
 }
 
-/* Contêiner para o iframe */
 .iframe-container {
     flex-grow: 1;
     display: flex;
-    justify-content: center;
-    align-items: center;
     width: 100%;
     overflow: hidden;
-    padding: 5px;
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+    background: #000;
 }
 
-/* O iframe dentro do contêiner */
 .iframe-container iframe {
     width: 100%;
     height: 100%;
-    border: 1px solid #00e0b7;
-    border-radius: 5px;
+    border: none;
 }
 
-/* Estilos para o botão dentro do modal */
 .btn-modal {
     display: inline-block;
-    padding: 10px 20px;
-    background-color: #00e0b7;
-    color: #1a1a1a;
+    align-self: flex-start;
+    padding: 0.8rem 1.8rem;
+    background-color: var(--accent);
+    color: var(--bg-dark);
     text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s;
-    margin-top: 10px;
+    border-radius: 25px;
+    font-weight: 700;
+    transition: all 0.3s;
+    margin-top: 1.5rem;
 }
 
 .btn-modal:hover {
     background-color: #00a887;
-}
-
- /* Tecnologias Grid */
-.tech-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
-    gap: 1rem;
-}
-
-.tech-card {
-    background-color: #e5e5e5;
-    color: #1a1a1a;
-    border-radius: 8px;
-    padding: 1rem 0.5rem;
-    text-align: center;
-    font-size: 0.85rem;
-    font-weight: 500;
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.8rem;
-    border: 2px solid transparent;
-    transition: all 0.3s ease;
-}
-
-.tech-card img {
-    width: 35px;
-    height: 35px;
-    object-fit: contain;
-}
-
-.tech-card:hover {
-    border-color: #60a5fa;
-    box-shadow: 0 0 12px rgba(96, 165, 250, 0.4);
     transform: translateY(-2px);
 }
 
-/* Estilo do botão do menu (Oculto no Desktop) */
-.menu-btn {
-    display: none;
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 1002; /* Fica por cima de tudo */
-    background-color: #00ffcc;
-    color: #121212;
-    border: none;
-    padding: 8px 12px;
-    font-size: 1.8rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+/* Responsividade Avançada (Mobile & Tablet) */
+@media (max-width: 1024px) {
+    main {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
 }
 
-.menu-btn:hover {
-    background-color: #00e6b8;
-}
-
-/* Responsividade para Celulares e Tablets */
 @media (max-width: 768px) {
-    /* Mostra o botão hamburguer */
     .menu-btn {
-        display: block; 
+        display: block;
     }
 
-    /* Esconde o menu lateral fora da tela inicialmente */
     nav {
         transform: translateX(-100%);
-        transition: transform 0.3s ease-in-out;
-        width: 250px;
-        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+        transition: transform 0.4s cubic-bezier(0.1,-0.03, 0.2, 1);
+        width: 270px;
+        background: rgba(14, 19, 31, 0.95);
     }
 
-    /* Classe que será ativada via JavaScript para mostrar o menu */
     nav.active {
         transform: translateX(0);
     }
 
-    /* Remove a margem do conteúdo principal e dá espaço para o botão */
-    main {
-        margin-left: 0;
-        padding: 1rem;
-        padding-top: 5rem; /* Evita que o conteúdo cole no botão fixo */
+    .contact-info {
+        display: block; /* Garante que os contatos apareçam no menu retrátil */
     }
 
-    /* Ajuste para apresentação no mobile */
+    main {
+        margin-left: 0;
+        padding: 2rem 1.5rem;
+        padding-top: 6rem;
+    }
+
     .hero h1 {
-        font-size: 2.2rem;
+        font-size: 2.3rem;
+    }
+    
+    .modal-content {
+        padding: 1.5rem;
+        height: 90vh;
     }
 }
