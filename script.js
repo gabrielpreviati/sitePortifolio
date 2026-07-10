@@ -81,3 +81,30 @@ window.addEventListener('click', function(event) {
         }
     });
 });
+
+// === Lógica do Menu Hambúrguer ===
+const menuBtn = document.getElementById('menu-btn');
+const nav = document.querySelector('nav');
+const navLinks = document.querySelectorAll('nav ul li a');
+
+// Abrir/Fechar menu ao clicar no botão
+menuBtn.addEventListener('click', () => {
+    nav.classList.toggle('active');
+    
+    // Troca o ícone: se o menu estiver ativo mostra um 'X', senão mostra o hambúrguer
+    if (nav.classList.contains('active')) {
+        menuBtn.innerHTML = '&times;'; // Símbolo de X
+    } else {
+        menuBtn.innerHTML = '&#9776;'; // Símbolo do hambúrguer
+    }
+});
+
+// Fechar o menu ao clicar em qualquer link da navegação (apenas no mobile)
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        if (window.innerWidth <= 768) {
+            nav.classList.remove('active');
+            menuBtn.innerHTML = '&#9776;';
+        }
+    });
+});

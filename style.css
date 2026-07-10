@@ -306,3 +306,62 @@ footer {
     box-shadow: 0 0 12px rgba(96, 165, 250, 0.4);
     transform: translateY(-2px);
 }
+
+/* Estilo do botão do menu (Oculto no Desktop) */
+.menu-btn {
+    display: none;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1002; /* Fica por cima de tudo */
+    background-color: #00ffcc;
+    color: #121212;
+    border: none;
+    padding: 8px 12px;
+    font-size: 1.8rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.menu-btn:hover {
+    background-color: #00e6b8;
+}
+
+/* Responsividade para Celulares e Tablets */
+@media (max-width: 768px) {
+    /* Mostra o botão hamburguer */
+    .menu-btn {
+        display: block; 
+    }
+
+    /* Esconde o menu lateral fora da tela inicialmente */
+    nav {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+        width: 250px;
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Classe que será ativada via JavaScript para mostrar o menu */
+    nav.active {
+        transform: translateX(0);
+    }
+
+    /* Esconde as informações de contato no menu mobile, se preferir */
+    .contact-info {
+        display: none;
+    }
+
+    /* Remove a margem do conteúdo principal e dá espaço para o botão */
+    main {
+        margin-left: 0;
+        padding: 1rem;
+        padding-top: 5rem; /* Evita que o conteúdo cole no botão fixo */
+    }
+
+    /* Ajuste para apresentação no mobile */
+    .hero h1 {
+        font-size: 2.2rem;
+    }
+}
